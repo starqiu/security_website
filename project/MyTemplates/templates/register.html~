@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load bootstrap_toolkit %}  
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="朱锟炜">
+    {% bootstrap_stylesheet_tag %}
+    {% bootstrap_stylesheet_tag "responsive" %}  
+    <link rel="shortcut icon" href="/static/docs-assets/ico/favicon.ico">
+	
+    <title>注册页面</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/dist/css/bootstrap.css" rel="stylesheet">
+	
+    <!-- Custom styles for this template -->
+    <link href="/static/dist/css/signin.css" rel="stylesheet">
+    {% bootstrap_javascript_tag %}  
+    {% block extra_head %}
+    {% endblock %}  
+   
+  </head>
+  <!-- selfmade js file -->
+  <script scr="../../jQuery/jquery.validate.js"></script> 
+  <body>
+
+    <div class="container">
+
+      <form class="form-signin" role="form" >
+        <h2 class="form-signin-heading" style="text-align:center">注册信息</h2>
+		<input type="text" class="form-control" placeholder="账号" required autofocus>
+        <input type="password" name ="passwd" class="form-control" placeholder="密码" required >
+		<input type="password" name = "passwdag" class="form-control" placeholder="再次输入密码"required >
+		<input type="text" name="email" class="form-control" placeholder="邮箱，可选">
+		<input type="text" name = "gender" class="form-control" placeholder="性别，可选" >
+		<input type="text" name = "birthday" class="form-control" placeholder="生日，例如10月12号：10/12 ">
+
+		<!--	<input type=hidden name = token value ="0">CSRF防御-->
+		
+		<button name = "register" class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>

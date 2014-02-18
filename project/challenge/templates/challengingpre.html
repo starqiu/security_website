@@ -1,0 +1,35 @@
+{% extends "clg.html" %}
+{% block Chanllengingpre %}
+{% if user.is_authenticated %}		
+{%if is_new%}
+<div class="jumbotron">
+ <div class="container">
+	<div class="row">
+        <div class="col-md-4">
+          <button type="button" id ="startnew" class="btn btn-info">
+			   <span class="glyphicon glyphicon-fire"></span>开始新的挑战&raquo;
+		  </button>   
+        </div>
+   </div>
+
+ </div>
+</div>
+{%else%}
+<div class="jumbotron">
+ <div class="container">
+	<div class="row">
+        <div class="col-md-4">
+          <button type="button" id ="getback" class="btn btn-info">
+			   <span class="glyphicon glyphicon-fire"></span>继续之前的挑战&raquo;
+		  </button>   
+        </div>
+   </div>
+
+ </div>
+
+ </div>
+</div>
+{%endif%}
+
+{% endif %}
+{% endblock%}

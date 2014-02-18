@@ -1,0 +1,10 @@
+{% extends "clg.html" %}
+{% block QuestionContent%}
+{% if user.is_authenticated %}
+<h3></h3>
+<h3>出题成功！</h3>
+
+{%else%}
+<h3>请先登陆</h3>
+{%endif%}
+{% endblock %}

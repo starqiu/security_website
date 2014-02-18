@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN"> 
+    <link rel="shortcut icon" href="/static/docs-assets/ico/favicon.ico">
+
+    <script src="/static/jQuery/jquery.js/"></script>
+    <script src="/static/dist/js/bootstrap.min.js"></script>
+    <script src="/static/JS/home.js"></script>
+    <script src="/static/JS/csrf.js"></script>
+    <title>USTC 信息安全学习网站</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/dist/css/jumbotron.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">USTC信息安全学习网站</a>
+        </div>
+
+
+         
+ 
+          <form class="navbar-form navbar-right" role="form" action="/login/" method="POST">
+            {% if not user.is_authenticated %}
+            {%csrf_token%}
+            <div class="form-group">
+              <input type="text" id ="username" name="username" placeholder="账号" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" id = "passwd" name="password" placeholder="密码" class="form-control">
+            </div>
+            <button type="submit" id ="login" class="btn btn-success">登录</button>
+			<button type="button" id ="register" class="btn btn-success">注册</button>
+            {% else %}
+            <button type="button" id ="welcome" class="btn btn-info">欢迎您,{{ user.username }}！</button>
+            <button type="button" id ="logout" class="btn btn-success">注销</button>
+            {%endif%}
+            {% if password_is_wrong %}  
+            <div class="alert alert-error" id="errorMassge">  
+            <button type="button" class="close"  data-dismiss="alert" >×</button>  
+            <h4>错误!用户名或密码错误 </h4>
+            {% endif %}   
+           </div> 
+          </form>
+        </div><!--/.navbar-collapse -->
+
+
+
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>USTC 信息安全学习网站</h1>
+        <p>网站介绍</p>
+        <p><a class="btn btn-primary btn-lg" href="/" role="button">使用指南 &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>挑战</h2>
+          <p>信息安全知识挑战</p>
+          <p><a class="btn btn-default"  href="/clg" role="button">进入挑战&raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>分享</h2>
+          <p>信息安全知识分享 </p>
+          <p><a class="btn btn-default" href="/share" role="button">查看分享&raquo;</a></p>
+       </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy;USTC 2013</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+  </body>
+</html>

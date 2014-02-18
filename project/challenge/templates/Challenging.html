@@ -1,0 +1,62 @@
+{% extends "clg.html" %}
+{% block Chanllenging %}
+{% if user.is_authenticated %}		
+{%if is_next%}
+    <button type="button" class="btn btn-danger btn-lg">保存并退出答题</button>
+{% endif %}
+    <div class="container">
+        
+      <div class="starter-template">
+        <h1>闯关答题</h1>
+      </div>
+    <h3>题目分类</h3>
+    {{QuestionType}}
+
+
+<!--下方是下拉菜单选择的值-->
+    <input type="hidden" id="firsr" name="First" value="">
+    <input type="hidden" id="second" name="Second" value="">
+
+     <div class="input-group input-group-lg">
+         <h2><span class="label label-success" >{{title}}</span></h2>
+     </div>
+     <textarea class="form-control" rows="8" cols="20" readonly="readonly" placeholder="请输入题目内容" required>
+        {{Qcontent}}
+     </textarea>
+    <div class="radio">
+        <label>A.
+         <input type="radio" name="optionsRadios" id="optionA" value="A">
+         {{selectA}}
+        </label>
+    </div>
+    <div class="radio">
+        <label>B.
+         <input type="radio" name="optionsRadios" id="optionB" value="B">
+         {{selectB}}
+        </label>
+    </div>
+    <div class="radio">
+        <label>C.
+         <input type="radio" name="optionsRadios" id="optionC" value="C">
+        {{selectC}}
+        </label>
+    </div>
+    <div class="radio">
+        <label>D.
+         <input type="radio" name="optionsRadios" id="optionD" value="D">
+        {{selectD}}
+        </label>
+    </div>
+    {%if is_next%}
+    <button type="button" class="btn btn-success btn-lg">下一题</button>
+    {% else %}
+    <button type="button" class="btn btn-success">提交</button>
+    {%endif%}
+
+
+    </div><!-- /.container -->
+
+
+
+{% endif %}
+{% endblock%}

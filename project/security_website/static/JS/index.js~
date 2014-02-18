@@ -1,0 +1,22 @@
+$(document).ready(function(){
+  
+
+  $("#register").click(function(){ 
+  
+    //location.href="./register";
+    alert('正在跳转');
+  });
+
+  
+
+
+
+
+
+
+
+
+
+
+
+});

@@ -1,0 +1,27 @@
+{% extends "clg.html" %}
+{% block ChanllengeIndex %}
+{% if user.is_authenticated %}		 
+<div class="jumbotron">
+ <div class="container">
+	<div class="row">
+        <div class="col-md-4">
+          <h2>Web安全挑战（guoyan）</h2>
+          <button type="button" id ="web" class="btn btn-info">
+			   <span class="glyphicon glyphicon-fire"></span>进入挑战&raquo;
+		  </button>
+          
+        </div>
+        <div class="col-md-4">
+          <h2>信息安全挑战（bjhua）</h2>
+          <button type="button" id ="information" class="btn btn-info">
+			   <span class="glyphicon glyphicon-fire"></span>进入挑战&raquo;
+		  </button>
+       </div>
+   </div>
+
+ </div>
+</div>
+
+
+{% endif %}
+{% endblock%}

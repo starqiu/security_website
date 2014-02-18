@@ -1,0 +1,79 @@
+{% extends "clg.html" %}
+{% block QuestionContent%}
+{% if user.is_authenticated %}
+﻿<div class="container">
+        
+      <div class="starter-template">
+        <h1>题目模板</h1>
+      </div>
+    
+<form class="form-group" role="form" action="./success_question/" method="POST">
+
+    {%csrf_token%}
+<!--下方是下拉菜单选择的值-->
+	<h3>题目分类</h3>
+    <select class="form-control" name = "classify" id="Sort">
+        <option value ="11">web安全_SQL注入</option>
+        <option value ="12">web安全_CSRF</option>
+        <option value ="13">web安全_XSS</option>
+    </select>
+    <h3>题目分值</h3>
+    <select class="form-control" name = "score" id="Sort">
+        <option value ="2">2分</option>
+        <option value ="3">3分</option>
+        <option value ="5">5分</option>
+    </select>
+    
+     <div class="input-group input-group-lg">
+         <span class="input-group-addon">题目标题</span>
+         <input type="text"  name = "title" class="form-control" placeholder="输入题目标题">
+     </div>
+     <textarea class="form-control" rows="8" cols="30" name = "content" placeholder="请输入题目内容" required></textarea>
+     <div class="input-group input-group-lg">
+         <span class="input-group-addon">A</span>
+         <input type="text" class="form-control" name="ida" placeholder="请输入选项内容" required>
+     </div>
+     <div class="input-group input-group-lg">
+         <span class="input-group-addon">B</span>
+         <input type="text" class="form-control" name="idb" placeholder="请输入选项内容" required>
+     </div>
+    <div class="input-group input-group-lg">
+         <span class="input-group-addon">C</span>
+         <input type="text" class="form-control" name="idc" placeholder="请输入选项内容" required>
+     </div>
+    <div class="input-group input-group-lg">
+         <span class="input-group-addon">D</span>
+         <input type="text" class="form-control" name="idd" placeholder="请输入选项内容" required>
+    </div>
+ <h3>正确选项</h3>
+<div class="radio">
+  <label>
+    <input type="radio" name="Correct" id="CA" value="A" checked>
+     A
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="Correct" id="CB" value="B" >
+     B
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="Correct" id="CC" value="C" >
+     C
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="Correct" id="CD" value="D" >
+     D
+  </label>
+</div>
+     <button type="submit" class="btn btn-lg btn-danger">提交题目</button>
+</form>
+</div><!-- /.container -->
+{%else%}
+<h3>请先登陆</h3>
+{%endif%}
+{% endblock %}
